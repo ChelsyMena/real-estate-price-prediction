@@ -5,7 +5,7 @@ Con los datos que se encuentran en este repositorio, provistos por el portal web
 
 La mayoria de las publicaciones en la pagina son de propiedades tipos vivienda (Casas, Apartamento y PHs)
 
-
+![Listings by property](/plot1.png "Numero de publicaciones por Tipo de Propiedad")
 
 La gran mayoria de publicaciones se hacen de propiedades en Buenos Aires, y de esa ciudad en el barrio Palermo. 
 
