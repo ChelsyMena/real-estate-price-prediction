@@ -42,10 +42,10 @@ The models were trained using **80,276 listings**, selecting features based on t
 - Tools: Jupyter Notebook
 
 ## 📌 Key Takeaways
-✅ Neighborhood is a strong factor in price & selling time
-✅ Decision Trees performed best with MAE = $55,876
-✅ Data-driven insights can help optimize property valuations
+✅ Neighborhood is a strong factor in price & selling time  
+✅ Decision Trees performed best with MAE = $55,876  
+✅ Data-driven insights can help optimize property valuations  
 
 ## 📬 Contact
 
-💼 [LinkedIn](https://www.linkedin.com/in/chelsy-mena-gonzalez) | 📧 chelsymg@gmail.com(mailto:chelsymg@gmail.com)
+💼 [LinkedIn](https://www.linkedin.com/in/chelsy-mena-gonzalez) | 📧 [chelsymg@gmail.com](mailto:chelsymg@gmail.com)
