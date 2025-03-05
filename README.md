@@ -1,36 +1,51 @@
-# Análisis del Mercado Inmobiliario
-### Prediccion del precio de propiedades en Buenos Aires, Argentina con datos de publicaciones en la página web Properati
+# 🏡 Real Estate Price Prediction in Buenos Aires  
 
-Con los datos que se encuentran en este repositorio, provistos por el portal web Properati, realicé el siguiente análisis del mercado inmobiliario en Buenos Aires, Argentina:
+## 📌 Overview  
+This project analyzes real estate prices in **Buenos Aires, Argentina** using data from [Properati](https://www.properati.com.ar/). The goal is to explore **factors influencing property prices** and build predictive models to estimate housing costs.  
 
-La mayoria de las publicaciones en la pagina son de propiedades tipos vivienda (Casas, Apartamento y PHs)
+## 📊 Data & Exploratory Analysis  
+The dataset includes property listings with details such as **location, size, and amenities**.  
 
-![Listings by property](/plots/plot1.png "Numero de publicaciones por Tipo de Propiedad")
+- 🏠 **Property Types:** Houses, Apartments, and PHs  
+- 📍 **Most Listings:** Concentrated in **Buenos Aires**, especially in the **Palermo** neighborhood  
+- ⏳ **Time to Sell:** No clear correlation with property size or number of rooms, but **neighborhood** affects selling speed.  
 
-Y la gran mayoria de publicaciones se hacen de propiedades en Buenos Aires, y de esa ciudad en el barrio Palermo. 
+### **Listings by Property Type**  
+![Listings by property](/plots/plot1.png "Number of Listings by Property Type")  
 
-![Listings by property](/plots/plot2.png "Numero de publicaciones por Tipo de Propiedad")
-![Listings by property](/plots/plot3.png "Numero de publicaciones por Tipo de Propiedad")
+### **Fastest & Slowest Selling Neighborhoods**  
+| **Faster than average** | **Slower than average**  |  
+|-------------------------|-------------------------|  
+| Villa Santa Rita, Nuñez, Belgrano, Palermo, Colegiales, etc. | Villa Lugano, Pompeya, Puerto Madero, etc. |  
 
-Parece no haber una relación marcada entre cuanto se demora la propiedad en ser vendida y caracteristicas medibles como su tamaño, y numero de espacios y baños, podría ser simplemente cuestión de que tan bueno sea tu agente inmobiliario. Pero se podría afirmar que el barrio donde está ubicada la propiedad si afecta si se vende más o menos rapido que el promedio.
-Los barrios con comportamientos marcados fueron
+## 🔍 Machine Learning Models  
+The models were trained using **80,276 listings**, selecting features based on their correlation with **price**:  
 
-|Más rápido que el promedio |Más lento que el promedio  |
---- | --- |
-|Villa Santa Rita -- Nuñez -- Belgrano -- San Nicolás -- Villa Pueyrredón -- Velez Sarsfield -- Monte Castro -- Monserrat -- San Cristobal -- Centro / Microcentro -- Villa Ortuzar -- Caballito -- Colegiales -- Paternal -- Tribunales -- Palermo -- Villa Crespo| Villa Lugano -- Pompeya -- Villa Soldati -- Mataderos -- Saavedra -- Villa Luro -- Liniers -- Parque Avellaneda -- Floresta -- Flores -- Parque Chacabuco -- Parque Patricios -- Agronomía -- Puerto Madero|
+- **Features Used:** `surface_total`, `surface_covered`, `bathrooms`  
+- **Error Metric:** Mean Absolute Error (MAE)  
 
-Teniendo en cuenta entonces estos 3 tipos de propiedad, para la cpital federal, utilicé 80276 datos para entrenar y validar los modelos y usé la superficie total y cubierta, y el número de baños de las propiedades (['surface_total', 'surface_covered', 'bathrooms']) elegidas por su correlación con la variable objetivo ('price'), y el Mean Absolute Error como métrica de error.
+### **Models Trained & Performance**  
+| Model | Train MAE ($ USD) | Test MAE ($ USD) |  
+|---|---|---|  
+| **Linear Regression** | 90,192 | 92,186 |  
+| **KNN (default)** | 56,969 | 66,440 |  
+| **KNN (optimized)** | 39,594 | 59,580 |  
+| **Decision Tree (default)** | 35,517 | 55,876 |  
+| **Decision Tree (optimized)** | ✅ **35,517** | ✅ **55,876** |  
 
-Se entrenaron:
-- Regresión Lineal, valores defaut
-- K vecinos mas cercanos, valores Default y n_neighbors = 3, weights = distance
-- Árbol de Decisión, valores default y max_depth = 30
+### **Predictions by Neighborhood**  
+![Listings by property](/plots/plot4.png "Predicted Prices by Neighborhood")  
 
-|	|LR MAE ($ USD)|KNN Default MAE ($ USD)|KNN Optimized MAE ($ USD)|DT Default MAE ($ USD)|DT Optimized MAE ($ USD) |
----	| --- | --- | --- | --- | --- |
-|Train|	90192.906013|	56969.194499|	39594.234751|	35517.577257|	35517.577257
-|Test|	92186.860182|	66440.388948|	59580.735831|	55876.901390|	**55876.901390**
+## 🛠 Tech Stack
+- Languages: Python
+- Libraries: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn
+- Tools: Jupyter Notebook
 
-Estos resultados mejoran notablemente cuando el mejor modelo se utiliza para predecir los precios de las propiedades de cada barrio:
+## 📌 Key Takeaways
+✅ Neighborhood is a strong factor in price & selling time
+✅ Decision Trees performed best with MAE = $55,876
+✅ Data-driven insights can help optimize property valuations
 
-![Listings by property](/plots/plot4.png "Numero de publicaciones por Tipo de Propiedad")
+## 📬 Contact
+
+💼 [LinkedIn](https://www.linkedin.com/in/chelsy-mena-gonzalez) | 📧 chelsymg@gmail.com(mailto:chelsymg@gmail.com)
